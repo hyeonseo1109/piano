@@ -9,13 +9,13 @@
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  background: linear-gradient(45deg,rgb(255, 212, 219), rgb(255, 235, 239) );
 }
 
 .pack {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  background-color: antiquewhite;
   width: auto;
   max-width: calc(100% - 20px);
   margin: 0 10px 30px 10px;
@@ -24,6 +24,7 @@
 .octave1, .octave2, .octave3 {
   display: flex;
   position: relative;
+  box-shadow: 0 0 20px 3px rgba(255, 166, 181, 0.5);
 }
 
 .black {
@@ -38,99 +39,46 @@
 .blackKeys {
   border: 1px solid rgb(177, 177, 177);
   width: 30px;
-  height: 100px;
+  height: 95px;
+  background-color: rgb(76, 76, 76);
+}
+.blackKeys:active {
   background-color: black;
 }
+
 
 .whiteKeys {
   border: 1px solid black;
   width: 40px;
   height: 160px;
+  background-color: white;
 }
+.whiteKeys:active {
+  background-color: rgb(238, 238, 238);
+}
+
 /*?-------------건반-------------*/
 
-#lowBlack1 {
-  background-color: gray;
-
+.black1 {
   position: absolute;
-  left: 20px;
+  left: 25px;
 }
-#lowBlack2 {
-  background-color: rgb(0, 0, 0);
-
+.black2 {
   position: absolute;
-  left: 250px;
+  left: 68px;
 }
-#lowBlack3 {
-  background-color: rgb(0, 0, 0);
-
+.black3 {
   position: absolute;
-  left: 250px;
+  left: 151px;
 }
-#lowBlack4 {
-  background-color: rgb(0, 0, 0);
-
+.black4 {
   position: absolute;
-  left: 250px;
+  left: 193px;
 }
-#lowBlack5 {
-  background-color: rgb(0, 0, 0);
+.black5 {
   position: absolute;
-  left: 250px;
+  left: 235px;
 }
-
-#midBlack1 {
-  background-color: rgb(0, 0, 0);
-  position: absolute;
-  left: 250px;
-}
-#midBlack2 {
-  background-color: rgb(0, 0, 0);
-  position: absolute;
-  left: 250px;
-}
-#midBlack3 {
-  background-color: rgb(0, 0, 0);
-  position: absolute;
-  left: 250px;
-}
-#midBlack4 {
-  background-color: rgb(0, 0, 0);
-  position: absolute;
-  left: 250px;
-}
-#midBlack5 {
-  background-color: rgb(0, 0, 0);
-  position: absolute;
-  left: 250px;
-}
-
-#highBlack1 {
-  background-color: rgb(0, 0, 0);
-  position: absolute;
-  left: 250px;
-}
-#highBlack2 {
-  background-color: rgb(0, 0, 0);
-  position: absolute;
-  left: 250px;
-}
-#highBlack3 {
-  background-color: rgb(0, 0, 0);
-  position: absolute;
-  left: 250px;
-}
-#highBlack4 {
-  background-color: rgb(0, 0, 0);
-  position: absolute;
-  left: 250px;
-}
-#highBlack5 {
-  background-color: rgb(0, 0, 0);
-  position: absolute;
-  left: 250px;
-}
-
 
 @keyframes logo-spin {
   from {
