@@ -1,22 +1,136 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.pack {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background-color: antiquewhite;
+  width: auto;
+  max-width: calc(100% - 20px);
+  margin: 0 10px 30px 10px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.octave1, .octave2, .octave3 {
+  display: flex;
+  position: relative;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+.black {
+  display: flex;
 }
+
+.white {
+  display: flex;
+}
+
+/*?-----------건반 전체 설정-----------*/
+.blackKeys {
+  border: 1px solid rgb(177, 177, 177);
+  width: 30px;
+  height: 100px;
+  background-color: black;
+}
+
+.whiteKeys {
+  border: 1px solid black;
+  width: 40px;
+  height: 160px;
+}
+/*?-------------건반-------------*/
+
+#lowBlack1 {
+  background-color: gray;
+
+  position: absolute;
+  left: 20px;
+}
+#lowBlack2 {
+  background-color: rgb(0, 0, 0);
+
+  position: absolute;
+  left: 250px;
+}
+#lowBlack3 {
+  background-color: rgb(0, 0, 0);
+
+  position: absolute;
+  left: 250px;
+}
+#lowBlack4 {
+  background-color: rgb(0, 0, 0);
+
+  position: absolute;
+  left: 250px;
+}
+#lowBlack5 {
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  left: 250px;
+}
+
+#midBlack1 {
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  left: 250px;
+}
+#midBlack2 {
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  left: 250px;
+}
+#midBlack3 {
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  left: 250px;
+}
+#midBlack4 {
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  left: 250px;
+}
+#midBlack5 {
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  left: 250px;
+}
+
+#highBlack1 {
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  left: 250px;
+}
+#highBlack2 {
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  left: 250px;
+}
+#highBlack3 {
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  left: 250px;
+}
+#highBlack4 {
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  left: 250px;
+}
+#highBlack5 {
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  left: 250px;
+}
+
 
 @keyframes logo-spin {
   from {
@@ -31,12 +145,4 @@
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
