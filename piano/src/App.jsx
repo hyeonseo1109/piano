@@ -87,22 +87,22 @@ function App() {
       <>
         <h1 id="h1">𝓟𝓲𝓪𝓷𝓸</h1>
         <div className="pack">
-          <div className="octave1">
+          <div className="octave3">
             <div className="black">
-              <div className="keys blackKeys black1" id="lowBlack1"></div>
-              <div className="keys blackKeys black2" id="lowBlack2"></div>
-              <div className="keys blackKeys black3" id="lowBlack3"></div>
-              <div className="keys blackKeys black4" id="lowBlack4"></div>
-              <div className="keys blackKeys black5" id="lowBlack5"></div>
+              <div className="keys blackKeys black1" id="highBlack1"></div>
+              <div className="keys blackKeys black2" id="highBlack2"></div>
+              <div className="keys blackKeys black3" id="highBlack3"></div>
+              <div className="keys blackKeys black4" id="highBlack4"></div>
+              <div className="keys blackKeys black5" id="highBlack5"></div>
             </div>
             <div className="white">
-              <div className="keys whiteKeys" id="lowWhite1"></div>
-              <div className="keys whiteKeys" id="lowWhite2"></div>
-              <div className="keys whiteKeys" id="lowWhite3"></div>
-              <div className="keys whiteKeys" id="lowWhite4"></div>
-              <div className="keys whiteKeys" id="lowWhite5"></div>
-              <div className="keys whiteKeys" id="lowWhite6"></div>
-              <div className="keys whiteKeys" id="lowWhite7"></div>
+              <div className="keys whiteKeys" id="highWhite1"></div>
+              <div className="keys whiteKeys" id="highWhite2"></div>
+              <div className="keys whiteKeys" id="highWhite3"></div>
+              <div className="keys whiteKeys" id="highWhite4"></div>
+              <div className="keys whiteKeys" id="highWhite5"></div>
+              <div className="keys whiteKeys" id="highWhite6"></div>
+              <div className="keys whiteKeys" id="highWhite7"></div>
             </div>
           </div>
 
@@ -125,22 +125,22 @@ function App() {
             </div>
           </div>
 
-          <div className="octave3">
+          <div className="octave1">
             <div className="black">
-              <div className="keys blackKeys black1" id="highBlack1"></div>
-              <div className="keys blackKeys black2" id="highBlack2"></div>
-              <div className="keys blackKeys black3" id="highBlack3"></div>
-              <div className="keys blackKeys black4" id="highBlack4"></div>
-              <div className="keys blackKeys black5" id="highBlack5"></div>
+              <div className="keys blackKeys black1" id="lowBlack1"></div>
+              <div className="keys blackKeys black2" id="lowBlack2"></div>
+              <div className="keys blackKeys black3" id="lowBlack3"></div>
+              <div className="keys blackKeys black4" id="lowBlack4"></div>
+              <div className="keys blackKeys black5" id="lowBlack5"></div>
             </div>
             <div className="white">
-              <div className="keys whiteKeys" id="highWhite1"></div>
-              <div className="keys whiteKeys" id="highWhite2"></div>
-              <div className="keys whiteKeys" id="highWhite3"></div>
-              <div className="keys whiteKeys" id="highWhite4"></div>
-              <div className="keys whiteKeys" id="highWhite5"></div>
-              <div className="keys whiteKeys" id="highWhite6"></div>
-              <div className="keys whiteKeys" id="highWhite7"></div>
+              <div className="keys whiteKeys" id="lowWhite1"></div>
+              <div className="keys whiteKeys" id="lowWhite2"></div>
+              <div className="keys whiteKeys" id="lowWhite3"></div>
+              <div className="keys whiteKeys" id="lowWhite4"></div>
+              <div className="keys whiteKeys" id="lowWhite5"></div>
+              <div className="keys whiteKeys" id="lowWhite6"></div>
+              <div className="keys whiteKeys" id="lowWhite7"></div>
             </div>
           </div>
         </div>
