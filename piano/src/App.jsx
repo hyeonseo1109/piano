@@ -52,8 +52,8 @@ function App() {
       key.addEventListener('mousedown', handleDown);
       key.addEventListener('mouseup', handleUp);
       key.addEventListener('mouseleave', handleUp);
-      key.addEventListener('touchstart', handleDown);
-      key.addEventListener('touchend', handleUp);
+      // key.addEventListener('touchstart', handleDown);
+      // key.addEventListener('touchend', handleUp);
     });
     return () => {
       keys.forEach((key) => {
