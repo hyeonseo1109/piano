@@ -4,11 +4,16 @@ import './App.css'
 
 function App() {
   const [isPiano, setIsPiano] = useState(true);
+  // 모드 변환 ( 피아노 <-> 마림바 )
+
   const startTimes = useRef({});
   const timeouts = useRef({});
+  // 누른 시간 감지
+
   const audioBox = useRef({});
   //건반 누를 때마다 새 오디오 만들면 잡음이 생기는 것을 확인, 
   //처음 눌렀을 때는 객체 새로 생성, 그 이후부터는 객체에 있던 오디오 가져옴.
+  
   const isTouch = useRef(false);
   //모바일과 컴퓨터 환경 구분 ( => 터치 이벤트가 있을 경우 모바일로 간주함)
 
@@ -36,11 +41,13 @@ function App() {
 
       const handleDown = () => {
         audio.pause();
+        //이전에 나던 소리를 끊고 새로운 소리가 시작됨. 얘 없애봤는데 5번 연타하면 소리가 뒤늦게 5번 들린다..
         audio.currentTime = 0;
+        //0초부터 재생
         audio.play();
         startTimes.current[key.id] = Date.now();
         //객체 starTimes에 현재 시각 저장.
-        //id별로 누른 시간을 구함 (=> 뗀 시간 - 누른 시간  구해서 총 눌린 시간을 구함, 눌린 시간 동안 소리 재생)
+        //id별로 누른 시간을 구함 
         clearTimeout(timeouts.current[key.id]);
         timeouts.current[key.id] = setTimeout(() => { 
           //아이디별로 4초 타이머 지정
@@ -52,6 +59,7 @@ function App() {
         const start = startTimes.current[key.id];
         //객체 startTimes에 있는 시간 다시 불러옴.
         const end = Date.now() - start;
+        //(=> 뗀 시간 - 누른 시간  구해서 총 눌린 시간을 구함, 눌린 시간 동안 소리 재생)
         clearTimeout(timeouts.current[key.id]);
 
         if (end <300) {
@@ -90,7 +98,9 @@ function App() {
 
     return () => {
       keys.forEach((key) => {
-        key.replaceWith(key.cloneNode(true)); // 이벤트 제거용
+        key.replaceWith(key.cloneNode(true)); 
+        //isPiano가 변경될 때마다 기존에 있던 이벤트를 없애주는 용도
+        //모드가 바뀌면 기존 건반들을 복사해서 이벤트리스너가 없는 새 건반들을 배치함.
       });
     };
   }, [isPiano]);
