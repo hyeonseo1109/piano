@@ -1,28 +1,38 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState} from 'react';
 //useRef는 다시 렌더링되어도 유지됨, 다른 함수에서도 접근 가능함.
 import './App.css'
 
 function App() {
+  const [isPiano, setIsPiano] = useState(true);
   const startTimes = useRef({});
   const timeouts = useRef({});
-
   const audioBox = useRef({});
   //건반 누를 때마다 새 오디오 만들면 잡음이 생기는 것을 확인, 
   //처음 눌렀을 때는 객체 새로 생성, 그 이후부터는 객체에 있던 오디오 가져옴.
-
   const isTouch = useRef(false);
   //모바일과 컴퓨터 환경 구분 ( => 터치 이벤트가 있을 경우 모바일로 간주함)
 
   useEffect(() => {
     const keys = document.querySelectorAll('.keys');
     keys.forEach((key) => {
-      if (!audioBox.current[key.id]) {  
+      const mode = isPiano ? 'piano' : 'marimba';
+      let audio = audioBox.current[key.id];
+      if (!audioBox || audioBox.mode !== mode) {  
         //audioBox에 해당 아이디의 값이 없다면 = 건반을 누른 적 없다면 새 오디오 생성
-        audioBox.current[key.id] = new Audio(`/피아노사운드/${key.id}.mp3`);
-        audioBox.current[key.id].preload = 'auto'; 
+        // audio = new Audio(`/${isPiano ? 'sound-piano' : 'sound-marimba'}/${key.id}.mp3`);
+        const src = `/${isPiano ? 'sound-piano' : 'sound-marimba'}/${key.id}.mp3`;
+        console.log(`Loading audio for ${key.id} :`, src);
+        audio = new Audio(src);
+        audio.preload = 'auto';
         // 성능 향상용. 페이지 불러올 때 사운드도 미리 불러와서 안 기다리고 버튼 누르자마자 바로바로 소리날 수 있음. 
-      }
-      const audio = audioBox.current[key.id]; //해당 건반을 누른 적 있다면 기존 오디오 활용
+        audio.mode = mode; 
+        //현재 모드를 기억시킴
+        audioBox.current[key.id] = audio;
+        //해당 건반을 누른 적 있다면 기존 오디오 활용
+      };
+
+      
+      
 
       const handleDown = () => {
         audio.pause();
@@ -35,6 +45,7 @@ function App() {
         timeouts.current[key.id] = setTimeout(() => { 
           //아이디별로 4초 타이머 지정
           audio.pause();
+          audio.currentTime = 0;
         }, 4000);
       };
       const handleUp = () => {
@@ -49,9 +60,11 @@ function App() {
           // 0.2초를 추가로 더 소리나게끔. (아무리 건반을 짧게 눌러도 최소한 0.3초는 소리가 남.)
           timeouts.current[key.id] = setTimeout(() => {
             audio.pause();
+            audio.currentTime = 0;
           }, remain);
         } else {
           audio.pause();
+          audio.currentTime = 0;
         }
       };
 
@@ -80,12 +93,20 @@ function App() {
         key.replaceWith(key.cloneNode(true)); // 이벤트 제거용
       });
     };
-  }, []);
+  }, [isPiano]);
+
+
+
+  
 
 
     return (
       <>
-        <h1 id="h1">𝓟𝓲𝓪𝓷𝓸</h1>
+        <h1 id="h1"
+          onClick={() => setIsPiano(!isPiano)}
+        >
+          {isPiano ? '𝓟𝓲𝓪𝓷𝓸' : '𝓜𝓪𝓻𝓲𝓶𝓫𝓪'}
+        </h1>
         <div className="pack">
           <div className="octave3">
             <div className="black">
